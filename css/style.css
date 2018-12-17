@@ -1,0 +1,416 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Robot Mono', monospace;
+    background-color: rgba(3, 64, 90, 1);
+}
+
+h1 {
+    text-align: center
+}
+
+h3 {
+    line-height: 2;
+}
+
+.grid {
+    display: grid;
+    grid-template: repeat (10, 1fr) / 1fr 1fr 1fr; 
+}
+
+
+
+
+/* Banner */
+
+.banner {
+    height: 320px;
+    grid-area: 1 / 1 / 3 / 4;
+    display: grid;
+    grid-template: 1fr 2fr / 1fr;
+    justify-content: center;
+    align-items: center;
+    background: url("../img/img1.jpg") center center no-repeat;
+    background-color: rgba(5, 160, 217, 0.3);
+    background-size: cover;
+    color: rgba(250, 250, 250, 1);
+    border-bottom: 10px solid rgba(3, 64, 90, 1);
+}
+
+.banner h2 {
+    font-size: 6em;
+    text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    grid-area: 1 / 1 / 2 / 2;
+    color: rgb(5, 90, 117);
+    justify-self: start; 
+    padding: 0;
+    margin-left: 15px;
+    font-family: 'Play', sans-serif;
+}
+
+.banner p {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 900;
+    width: 900px;
+    grid-area: 2 / 1 / 4 / 2;
+    justify-self: center;
+    align-self: end;
+    text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.8);
+    padding: 0px;
+    color: #fff;
+}
+
+/* Main */
+
+.main {
+    grid-column: 1 / 4;
+}
+
+.space {
+    grid-area: 4 / 1 / 5 / 4;
+    background-size: cover;
+    padding: 20px;
+    background-image: linear-gradient(rgba(116, 205, 243, 0), rgba(3, 64, 90, 1));
+    width: 100%;
+    display: grid;
+    
+}
+
+.intro {
+    text-align: center;
+    grid-area: 4 / 1 / 5 / 4;
+    padding: 10px;
+    font-size: 14px;
+    max-width:  800px;
+    color: #FFFFFF;
+    letter-spacing: 0.1em;
+    justify-self: center;
+    font-family: 'Play', sans-serif;
+}
+
+.stories div {
+  font: inherit;
+  color: #FFFFFF;
+  overflow: hidden;
+  opacity: 0.9;
+  width: 350px;
+  height: 300px;
+  font-size: 14px;
+  text-align: center;
+  justify-self: center;
+  text-shadow: 2px 1px 1px rgba(0, 0, 0, 0.6);
+  display: grid;
+  grid-template: 1fr repeat(3, 2fr) / 1fr;
+  box-shadow: 5px 5px 2px rgb(44, 42, 42);
+}
+
+.stories {
+   grid-area: 5 / 1 / 7 / 4;
+   display: grid;
+   grid-gap:20px;
+   grid-template: 1fr / 1fr 1fr 1fr;
+   padding: 20px;
+}
+
+.stories p {
+    width: 70%;
+    justify-self: center;
+    align-self: start;
+    font-size: 0.9rem;
+    opacity: 0;
+    grid-row: 2 / 3;
+    transition: .5s ease;
+}
+
+.stories h3 {
+    font-size: 2rem;
+    align-self: start;
+    grid-row: 1 / 2;
+    background-color: rgba(44, 42, 42, 0.6);
+    font-family: 'Play', sans-serif;
+}
+
+.stories button {
+    opacity: 0;
+    justify-self: center;
+    align-self: end;
+    grid-row: 3 / 4;
+}
+
+.one {
+   background: url("../images/resurrection.jpg") center center no-repeat;
+   background-size: cover;
+}
+
+.two {
+    background: url("../images/piano.jpg") center center no-repeat;
+   background-size: cover;
+}
+
+.three {
+  background: url("../images/audience.jpg") center center no-repeat;
+   background-size: cover;
+}
+
+
+.one:hover p {
+    opacity: 1;
+}
+
+.one:hover button {
+    opacity: 1;
+}
+
+.one:hover div {
+    background-color: rgba(44, 42, 42, 0.6);
+}
+
+.two:hover p {
+    opacity: 1;
+}
+
+.two:hover div {
+    background-color: rgba(44, 42, 42, 0.6);
+}
+
+.two:hover button {
+    opacity: 1;
+}
+
+.three:hover p {
+    opacity: 1;
+}
+
+.three:hover div {
+    background-color: rgba(44, 42, 42, 0.6);
+}
+
+.three:hover button {
+    opacity: 1;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 2; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: rgb(44, 42, 42);
+    color: white;
+    margin: 10% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+.modal-content h2 {
+    padding-bottom: 20px;
+}
+/* The Close Button */
+.oneClose {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.oneClose:hover,
+.oneClose:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+/* The Close Button */
+.twoClose {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.twoClose:hover,
+.twoClose:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+/* The Close Button */
+.threeClose {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.threeClose:hover,
+.threeClose:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+
+.myAbout {
+    height: 300px;
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 100px; /* Stay at the top */
+    right: 0;
+    background-color: rgb(5, 90, 117); /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 50px; /* Place content 60px from the top */
+    padding-right: 0;
+    margin-right: 10px;
+    transition: 0.5s; 
+    box-shadow: 3px 3px rgba(24, 22, 22, 0.8);
+}
+
+.myAbout .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    margin-left: 50px;
+    color: #fff;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.myAbout p {
+    color: #fff;
+    width: 300px;
+    padding-left: 50px;
+    text-align: center;
+    
+}
+
+
+.myContact {
+    height: 300px;
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 100px; /* Stay at the top */
+    right: 15px;
+    background-color: rgb(5, 90, 117); /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 50px; /* Place content 60px from the top */
+    margin-left: 20px;
+    transition: 0.5s; 
+    box-shadow: 3px 3px rgba(24, 22, 22, 0.8);
+}
+
+.myContact .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    margin-left: 50px;
+    color: #fff;
+    font-size: 28px;
+    font-weight: bold;
+}
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.myContact form {
+    padding-right: 10px
+}
+
+.myContact input {
+    align-self: center;
+}
+
+.col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.col-75 {
+    float: right;
+    width: 70%;
+    margin-top: 10px;
+}
+
+.myContact input {
+    background-color: #fff;
+    color: rgb(5, 90, 117);
+    padding: 12px 20px;
+    border: solid 2px rgba(108, 107, 107, 1);
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+}
+
+.myContact textarea {
+    width: 70%;
+    padding: 12px;
+    border: solid 2px rgba(108, 107, 107, 1);
+    border-radius: 4px;
+    resize: vertical;
+}
+
+.myContact label {
+    padding: 12px 12px 10px 5px;
+    display: inline-block;
+}
+
+ .row button {
+    background-color: rgba(58, 57, 57, 1);
+    color: white;
+    border: none;
+    padding: 1px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+    bottom: 10px;
+    margin-top: 10px;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+    
+}
+/* The Modal (background) */
+button {
+    background-color: rgb(5, 90, 117); /* Green */
+    border: none;
+    color: white;
+    padding: 15px 22px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    width:150px;
+    height: 50px;
+}
+
+
+
